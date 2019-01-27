@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        body {
+            height: 350px;
+            width: 300px;
+            outline: none;
+        }
+
+        .wide {
+            outline: none;
+            width: 100%;
+        }
+
+        .priceInput {
+            outline: none;
+            width: 51px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <p>Мінімальна ціна:</p>
+        <div>
+            <button class="wide" id="setMinPriceTags">Теги та пошук (мінімальна ціна)</button>
+            <button class="wide" id="setMinPriceCats">Категорії (мінімальна ціна)</button>
+        </div>
+        <p>Середня ціна:</p>
+        <div>
+            <button class="wide" id="setMidPriceTags">Теги та пошук (середня ціна)</button>
+            <button class="wide" id="setMidPriceCats">Категорії (середня ціна)</button>
+        </div>
+        <p>Збільшення ціни: </p>
+        <div>
+            <input class="priceInput" id="price_addend" type="text" value="0"> UAH </input>
+            <button class="wide" id="upMinPriceTags">Теги та пошук (Додати до мінімальної ціни)</button>
+            <button class="wide" id="upMidPriceTags">Теги та пошук (Додати до середньої ціни)</button>
+            <button class="wide" id="upMinPriceCats">Категорії (Додати до мінімальної ціни)</button>
+            <button class="wide" id="upMidPriceCats">Категорії (Додати до середньої ціни)</button>
+            <p></p>
+            <button class="wide" id="setCurrPriceTags">Теги та пошук (Встановити вказану ціну)</button>
+            <button class="wide" id="setCurrPriceCats">Категорії (Встановити вказану ціну)</button>
+        </div>
+    </div>
+    <script src="popup.js"></script>
+</body>
+
+</html>
