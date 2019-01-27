@@ -12,6 +12,7 @@
         "cookies",
         "declarativeContent",
         "storage",
+        "tabs",
         "activeTab"
     ],
     "background" : {

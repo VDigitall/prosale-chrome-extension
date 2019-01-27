@@ -40,7 +40,8 @@ function get_inputs() {
 }
 
 function set_prices(prices, source, add) {
-    var tags_and_search = 'https://my.prom.ua/remote/product_adv/set_category_custom_price/68040'
+    company_id = location.pathname.split('/')[3]
+    var tags_and_search = 'https://my.prom.ua/remote/product_adv/set_category_custom_price/' + company_id;
 
     $(prices).each(function(index) {
         if (add == true)
