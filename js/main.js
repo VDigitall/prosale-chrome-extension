@@ -42,7 +42,6 @@ function get_inputs() {
 function set_prices(prices, source, add) {
     company_id = location.pathname.split('/')[3]
     var tags_and_search = 'https://my.prom.ua/remote/product_adv/set_category_custom_price/' + company_id;
-
     $(prices).each(function(index) {
         if (add == true)
             price = parseFloat(prices[index]) + parseFloat(price_value);

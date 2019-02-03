@@ -15,6 +15,9 @@ let upMidPriceCats = document.getElementById('upMidPriceCats');
 let setCurrPriceTags = document.getElementById('setCurrPriceTags');
 let setCurrPriceCats = document.getElementById('setCurrPriceCats');
 
+let setCurrPriceBiglCats = document.getElementById('setCurrPriceBiglCats')
+let setCurrPriceBiglOther = document.getElementById('setCurrPriceBiglOther')
+
 chrome.cookies.get({url: 'https://my.prom.ua', name: 'lid'}, function(cookies) {
     user_id = cookies.value.split('-')[2];
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
@@ -98,4 +101,14 @@ setCurrPriceTags.onclick = function() {
 setCurrPriceCats.onclick = function() {
   run_func('price_value = ' + price_value.value + ';');
   run_func('add_to_curr_price("prom_catalog", false)');
+};
+
+setCurrPriceBiglCats.onclick = function() {
+  run_func('price_value = ' + price_value.value + ';');
+  run_func('add_to_curr_price("bigl_catalog", false)');
+};
+
+setCurrPriceBiglOther.onclick = function() {
+  run_func('price_value = ' + price_value.value + ';');
+  run_func('add_to_curr_price("bigl", false)');
 };
