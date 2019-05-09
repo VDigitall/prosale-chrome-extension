@@ -39,7 +39,24 @@ function get_inputs() {
     return inputs;
 }
 
+
+function parse_cookies(){
+    cookiesList = document.cookie.split('; ')
+    cookiesObject = {}
+    cookiesList.forEach(c => {
+        cl = c.split('=');
+        key = cl[0];
+        value = cl[1];
+        cookiesObject[key] = value;
+    });
+    return cookiesObject
+}
+
+
+let cookies = parse_cookies();
+
 function set_prices(prices, source, add) {
+    // console.log(cookies)
     company_id = location.pathname.split('/')[3]
     var tags_and_search = 'https://my.prom.ua/remote/product_adv/set_category_custom_price/' + company_id;
     $(prices).each(function(index) {
@@ -52,8 +69,8 @@ function set_prices(prices, source, add) {
         $.ajax({
             url: tags_and_search,
             headers: {
-                "x-promuserid": user_id,
-                "x-csrftoken": csrf_token
+                "x-promuserid": cookies.lid,
+                "x-csrftoken": cookies.csrf_token
             },
             type: "POST",
             contentType: "application/x-www-form-urlencoded",
@@ -85,3 +102,9 @@ function add_to_curr_price(source, add) {
     inputs = get_inputs();
     set_prices(prices, source, add);
 }
+
+
+// Criteo
+// id: 1250308
+// price: 1.1
+// source: criteo

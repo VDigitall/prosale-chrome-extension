@@ -19,27 +19,27 @@ let setCurrPriceBiglCats = document.getElementById('setCurrPriceBiglCats')
 let setCurrPriceBiglOther = document.getElementById('setCurrPriceBiglOther')
 
 chrome.cookies.get({url: 'https://my.prom.ua', name: 'lid'}, function(cookies) {
-    user_id = cookies.value.split('-')[2];
+    uid = cookies.value.split('-')[2];
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
       chrome.tabs.executeScript(
         tabs[0].id,
         {
-          code: 'user_id='+user_id+';'
+          code: 'user_id='+uid+'; localStorage.setItem("user_id", '+uid+');'
         }
       )
-    });    
+    });
   });
 
 chrome.cookies.get({url: 'https://my.prom.ua', name: 'csrf_token'}, function(cookies) {
-    csrf_token = cookies.value;
+    token = cookies.value;
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
       chrome.tabs.executeScript(
         tabs[0].id,
         {
-          code: 'csrf_token="'+csrf_token+'";'
+          code: 'csrf_token="'+token+'";'
         }
       )
-    });   
+    }); 
   });
 
 function run_func(func) {
@@ -52,6 +52,7 @@ function run_func(func) {
     )
   });
 };
+
 
 setMinPriceTags.onclick = function() {
   run_func('price_value = 0;');
