@@ -64,7 +64,7 @@ function set_prices(prices, source, add) {
             price = parseFloat(prices[index]) + parseFloat(price_value);
         else
             price = parseFloat(price_value);
-        data = 'id=' + categories[index] + '&price=' + price + '&source=' + source;
+        data = 'id=' + categories[index] + '&price=' + price + '&sources=' + source;
         console.log("DATA: " + data)
         $.ajax({
             url: tags_and_search,

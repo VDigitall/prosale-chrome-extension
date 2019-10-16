@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "Prom Prosale Assistant",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "description": "Change prosale rate for all categories on page",
     "author": "Vitalii Martyniak",
     "icons": {
