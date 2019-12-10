@@ -2,18 +2,25 @@ let price_value = document.getElementById('price_addend');
 
 let setMinPriceTags = document.getElementById('setMinPriceTags');
 let setMinPriceCats = document.getElementById('setMinPriceCats');
+let setMinRate = document.getElementById('setMinRate');
 
 let setMidPriceTags = document.getElementById('setMidPriceTags');
 let setMidPriceCats = document.getElementById('setMidPriceCats');
 
+let setMidRate = document.getElementById('setMidRate');
+
 let upMinPriceTags = document.getElementById('upMinPriceTags');
 let upMidPriceTags = document.getElementById('upMidPriceTags');
+
+let upMidRate = document.getElementById('upMidRate');
 
 let upMinPriceCats = document.getElementById('upMinPriceCats');
 let upMidPriceCats = document.getElementById('upMidPriceCats');
 
 let setCurrPriceTags = document.getElementById('setCurrPriceTags');
 let setCurrPriceCats = document.getElementById('setCurrPriceCats');
+
+let setCurrRate = document.getElementById('setCurrRate');
 
 let setCurrPriceBiglCats = document.getElementById('setCurrPriceBiglCats')
 let setCurrPriceBiglOther = document.getElementById('setCurrPriceBiglOther')
@@ -64,6 +71,11 @@ setMinPriceCats.onclick = function() {
   run_func('set_min_price("prom_catalog", true)');
 };
 
+setMinRate.onclick = function() {
+  run_func('price_value = 0;');
+  run_func('set_min_rate("prom,group_bigl", true)');
+};
+
 setMidPriceTags.onclick = function() {
   run_func('price_value = 0;');
   run_func('set_mid_price("others", true)');
@@ -72,6 +84,11 @@ setMidPriceTags.onclick = function() {
 setMidPriceCats.onclick = function() {
   run_func('price_value = 0;');
   run_func('set_mid_price("prom_catalog", true)');
+};
+
+setMidRate.onclick = function() {
+  run_func('price_value = 0;');
+  run_func('set_mid_rate("prom,group_bigl", true)');
 };
 
 upMinPriceCats.onclick = function() {
@@ -84,15 +101,26 @@ upMidPriceCats.onclick = function() {
   run_func('set_mid_price("prom_catalog", true)');
 };
 
+upMidRate.onclick = function() {
+  run_func('price_value = ' + price_value.value + ';');
+  run_func('set_mid_rate("prom,group_bigl", true)');
+};
+
 upMinPriceTags.onclick = function() {
   run_func('price_value = ' + price_value.value + ';');
   run_func('set_min_price("others", true)');
+};
+
+upMinRate.onclick = function() {
+  run_func('price_value = ' + price_value.value + ';');
+  run_func('set_min_rate("prom,group_bigl", true)');
 };
 
 upMidPriceTags.onclick = function() {
   run_func('price_value = ' + price_value.value + ';');
   run_func('set_mid_price("others", true)');
 };
+
 
 setCurrPriceTags.onclick = function() {
   run_func('price_value = ' + price_value.value + ';');
@@ -112,4 +140,9 @@ setCurrPriceBiglCats.onclick = function() {
 setCurrPriceBiglOther.onclick = function() {
   run_func('price_value = ' + price_value.value + ';');
   run_func('add_to_curr_price("bigl", false)');
+};
+
+setCurrRate.onclick = function() {
+  run_func('price_value = ' + price_value.value + ';');
+  run_func('add_to_curr_rate("prom,group_bigl", false)');
 };
