@@ -125,13 +125,3 @@ function add_to_curr_rate(source, add) {
     set_rates(prices, source, add);
 }
 
-// Criteo
-// id: 1250308
-// price: 1.1
-// sources: criteo
-
-// CPA
-// category_id: 29
-// sources: prom,group_bigl
-// rate: 0.001
-// https://my.prom.ua/remote/product_adv/set_category_commission_rate/<company-id>
