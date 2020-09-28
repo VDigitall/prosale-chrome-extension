@@ -80,12 +80,12 @@ function set_rates(rates, source, add) {
         data = 'category_id=' + categories[index] + '&rate=' + price + '&sources=' + source;
         console.log("DATA: " + data)
         make_request(url, data)
-    }); 
+    });
 }
 
 function set_min_price(source, add) {
     categories = get_categories();
-    prices = get_values('span[data-qaid="min_price_value"]');
+    prices = get_values('div[data-qaid="category_prices_block"] span.b-prosale-stats-view__value:not([data-qaid])');
     inputs = get_inputs('input[data-qaid="own_price_input"]');
     set_prices(prices, source, add);
 }
