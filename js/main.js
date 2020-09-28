@@ -18,6 +18,21 @@ function get_values(query) {
     return results;
 }
 
+function get_cpa_values(query) {
+    // 'div.RateStatsViewCompact__root--3ns4_'
+    var results = []
+    $(query).map(function() {
+        var vals = $(this).text().split(' — ');
+        var result = {
+            min: parseFloat(vals[0].substring(3, 10)),
+            mid: parseFloat(vals[1]),
+            max: parseFloat(vals[2])
+        };
+        results.push(result)
+    });
+    return results;
+}
+
 function get_inputs(query) {
     var inputs = $(query);
     return inputs;
@@ -106,21 +121,27 @@ function add_to_curr_price(source, add) {
 
 function set_min_rate(source, add) {
     categories = get_categories();
-    prices = get_values('span[data-qaid="min_rate_value"]');
+    all_prices = get_cpa_values('div.RateStatsViewCompact__root--3ns4_');
+    var prices = [];
+    all_prices.forEach(function(i) {prices.push(i.min)});
     inputs = get_inputs('input[data-qaid="own_rate_input"]');
     set_rates(prices, source, add);
 }
 
 function set_mid_rate(source, add) {
     categories = get_categories();
-    prices = get_values('span[data-qaid="medium_rate_value"]');
+    all_prices = get_cpa_values('div.RateStatsViewCompact__root--3ns4_');
+    var prices = [];
+    all_prices.forEach(function(i) {prices.push(i.mid)});
     inputs = get_inputs('input[data-qaid="own_rate_input"]');
     set_rates(prices, source, add);
 }
 
 function add_to_curr_rate(source, add) {
     categories = get_categories();
-    prices = get_values('span[data-qaid="max_rate_value"]');
+    all_prices = get_cpa_values('div.RateStatsViewCompact__root--3ns4_');
+    var prices = [];
+    all_prices.forEach(function(i) {prices.push(i.max)});
     inputs = get_inputs('input[data-qaid="own_rate_input"]');
     set_rates(prices, source, add);
 }
